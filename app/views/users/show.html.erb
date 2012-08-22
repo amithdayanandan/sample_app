@@ -1,5 +1,27 @@
 <% provide(:title, @user.name) %>
+<%= javascript_include_tag :defaults %> 
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+<body>
+	<div class="center hero-unit">
+		<%= link_to "Report Issue", "#", class: "btn btn-large btn-primary", onclick: "showHideDiv('foo')", align: "center" %>
+		<%= link_to "View Issue History", "#", class: "btn btn-large btn-primary" %>
+	</div>
+	<div id="foo" style="visibility:hidden">foo</div>
+	<script>
+	    function showHideDiv(elementId) 
+	    {
+	        if (document.getElementById) 
+	        {
+	        	var element = document.getElementById(elementId);
+	            if (element.style.visibility == 'hidden') {
+	                element.style.visibility = 'visible';
+	            } else if (element.style.visibility == 'visible') {
+	                element.style.visibility = 'hidden';
+	            }
+	        }
+	    }
+	</script>
+</body>
